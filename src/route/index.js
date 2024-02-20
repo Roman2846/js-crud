@@ -8,7 +8,7 @@ const router = express.Router()
 // router.get Створює нам один ентпоїнт
 
 // ↙️ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
+router.get('/product-create', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   // ↙️ cюди вводимо назву файлу з сontainer
@@ -17,6 +17,15 @@ router.get('/', function (req, res) {
     style: 'index',
   })
   // ↑↑ сюди вводимо JSON дані
+})
+
+// ================================================================
+
+router.post('/product-create', function (req, res) {
+  const { name, price, description } = req.body
+  res.render('index', {
+    style: 'index',
+  })
 })
 
 // ================================================================
