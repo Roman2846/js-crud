@@ -128,7 +128,7 @@ router.post('/user-update', function (req, res) {
   res.render('success-info', {
     style: 'success-info',
     info: result
-      ? 'Емфйл пошта оновлена'
+      ? 'Емайл пошта оновлена'
       : 'Сталася помилка',
   })
 })
