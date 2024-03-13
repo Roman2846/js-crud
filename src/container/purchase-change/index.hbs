@@ -4,25 +4,28 @@
 }}
 
 <main class="main">
-	<section class='purchase-change'>
-		<a href='/purchase-change?id={id}}'>
-			{{>heading title="Зміна даних"}}
-			<div class='purchase-item'>
-				<div class='purchase-item__block'>
-					<span class='title'>ID: {{id}}</span>
+	{{#with data}}
+	<form method="POST" action="/purchase-edit?id={{data.id}}" class='form'>
+		<section class='purchase-change'>
+			<a href='/purchase-change?id={{id}}'>
+				{{>heading title="Зміна даних"}}
+				<div class='purchase-item'>
+					<span>ID: {{id}}</span>
+
+					{{> field label='Прізвище' name='lastname' value=lastname}}
+
+					{{>field label="Ім'я:" name="firstname" value=firstname}}
+
+					{{>field label="Електронна пошта:" name="email" value=email}}
+
+					{{>field label="Телефон:" name="phone" value=phone}}
+
+					{{>button text="Змінити дані"}}
 				</div>
-
-				{{>field label="Прізвище:" name="lastname"}}
-
-				{{>field label="Ім'я:" name="firstname"}}
-
-				{{>field label="Електронна пошта:" name="email"}}
-
-				{{>field label="Телефон:" name="phone"}}
-			</div>
-		</a>
-		{{>button text="Змінити дані"}}
-	</section>
+			</a>
+		</section>
+	</form>
+	{{/with}}
 </main>
 
 {{!

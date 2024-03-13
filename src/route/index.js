@@ -506,20 +506,31 @@ router.post('/purchase-submit', function (req, res) {
 
   // ================================================================
 
-//   router.get('/purchase-change', function (req, res) {
-//     const list = Purchase.getList()
-//     console.log('purchase-change:', list)
+  router.post('/purchase-change', function (req, res) {
+    // ↙️ cюди вводимо назву файлу з сontainer
+    res.render('purchase-change', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'purchase-change',
+      component: ['heading', 'button'],
 
-//     // ↙️ cюди вводимо назву файлу з сontainer
-//     res.render('purchase-change', {
-//       // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-//       style: 'purchase-change',
+      title: 'Зміна даних',
 
-//       data: {
-//       },
-//     })
-//     // ↑↑ сюди вводимо JSON дані
-//   })
-// })
+      data: {
+        id: purchase.id,
+        firstname: purchase.firstname,
+        lastname: purchase.lastname,
+        phone: purchase.phone,
+        email: purchase.email,
+        delivery: purchase.delivery,
+        product: purchase.product.title,
+        productPrice: purchase.productPrice,
+        deliveryPrice: purchase.deliveryPrice,
+        totalPrice: purchase.totalPrice,
+        bonus: bonus,
+      },
+    })
+    // ↑↑ сюди вводимо JSON дані
+  })
+})
 // Підключаємо роутер до бек-енду
 module.exports = router
