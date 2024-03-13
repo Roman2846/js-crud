@@ -16,7 +16,7 @@
 
 .product-card {
   border-radius: 10px;
-  border: 1px solid;
+  border: 1px solid #CED4DA;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -36,12 +36,14 @@
 
 .product-card__subtitle {
   font-size: 16px;
+  color: grey;
 }
 
 .product-card__category {
   padding: 4px 12px;
   border-radius: 30px;
   font-size: 14px;
+  color: dark;
   border: 1px solid transparent;
 }
 
@@ -56,6 +58,7 @@
 }
 
 .product-card__button {
+  background-color: blue;
   color: white;
   border: none;
   border-radius: 5px;
@@ -65,6 +68,20 @@
   transition: opacity 0.3s ease;
 }
 .product-card__button:hover {
+  opacity: 0.7;
+}
+
+.button {
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3 ease;
+}
+.buttonhover {
   opacity: 0.7;
 }
 
