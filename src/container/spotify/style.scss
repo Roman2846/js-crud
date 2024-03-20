@@ -1,0 +1,20 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.image {
+	display: flex;
+	gap: 32px;
+}
+
+.title {
+	font-size: 40px;
+}
+
+
