@@ -62,17 +62,17 @@ console.log(Track.getList())
 class Playlist {
   static #list = []
 
-  constructor(name) {
+  constructor(name, image) {
     this.id = Math.floor(1000 + Math.random() * 9000)
     this.name = name
     this.tracks = []
-    this.image = 'https://picsum.photos/100/100'
+    this.image = image || '/img/my-playlist.jpg'
   }
 
-  static create(name) {
-    const newPlayList = new Playlist(name)
-    this.#list.push(newPlayList)
-    return newPlayList
+  static create(name, image) {
+    const newPlaylist = new Playlist(name, image)
+    this.#list.push(newPlaylist)
+    return newPlaylist
   }
 
   static getList() {
@@ -112,9 +112,27 @@ class Playlist {
   }
 }
 
-Playlist.makeMix(Playlist.create('Test'))
-Playlist.makeMix(Playlist.create('Test2'))
-Playlist.makeMix(Playlist.create('Test3'))
+Playlist.makeMix(
+  Playlist.create(
+    'Пісні, що сподобались',
+    '/img/favorites.jpg',
+  ),
+)
+
+Playlist.makeMix(
+  Playlist.create('Спільний альбом', '/img/mixed.jpg'),
+)
+
+Playlist.makeMix(
+  Playlist.create('Інь Ян', '/img/random.jpg'),
+)
+
+Playlist.makeMix(
+  Playlist.create(
+    'Мій плейліст №1',
+    '/img/my-playlist.jpg',
+  ),
+)
 
 // ================================================================
 
@@ -123,13 +141,23 @@ Playlist.makeMix(Playlist.create('Test3'))
 // ↙️ тут вводимо шлях (PATH) до сторінки
 router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
+  allTracks = Track.getList()
+  console.log(allTracks)
+
+  const allPlaylists = Playlist.getList()
+  console.log(allPlaylists)
 
   // ↙️ cюди вводимо назву файлу з сontainer
   res.render('spotify', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'spotify',
 
-    data: {},
+    data: {
+      list: allPlaylists.map(({ tracks, ...rest }) => ({
+        ...rest,
+        amount: tracks.length,
+      })),
+    },
   })
   // ↑↑ сюди вводимо JSON дані
 })
@@ -351,8 +379,7 @@ router.get('/spotify-search', function (req, res) {
     data: {
       list: list.map(({ tracks, ...rest }) => ({
         ...rest,
-        amount: tracks,
-        length,
+        amount: tracks.length,
       })),
       value,
     },
@@ -372,8 +399,7 @@ router.post('/spotify-search', function (req, res) {
     data: {
       list: list.map(({ tracks, ...rest }) => ({
         ...rest,
-        amount: tracks,
-        length,
+        amount: tracks.length,
       })),
       value,
     },
