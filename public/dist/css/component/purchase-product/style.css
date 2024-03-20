@@ -1,6 +1,6 @@
 .product-card {
   border-radius: 10px;
-  border: 1px solid #CED4DA;
+  border: 1px solid #ced4da;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -20,14 +20,14 @@
 
 .product-card__subtitle {
   font-size: 16px;
-  color: grey;
+  color: #8D8D8D;
 }
 
 .product-card__category {
   padding: 4px 12px;
   border-radius: 30px;
   font-size: 14px;
-  color: dark;
+  color: #121212;
   border: 1px solid transparent;
 }
 

@@ -1,0 +1,8 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.track__list {
+	background-color: #282828;
+	padding: 24px 32px;
+}

@@ -1,0 +1,80 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+
+<main class="main">
+	{{#with data}}
+	<div class="main__content">
+		<div class="top">
+			<div class="title">
+				<h1>Моя бібліотека</h1>
+			</div>
+			<div class="image">
+				<a href="/spotify-search">
+					<img src="svg/spotify-search.svg">
+				</a>
+				<a href="/spotify-choose?playlistId={{playlistId}}&trackId={{id}}">
+					<img src="svg/to_add_button.svg">
+				</a>
+			</div>
+		</div>
+
+		<ul class="playlist__list">
+			{{#each list}}
+			<li class="playlist">
+				<img src="{{image}}" alt="{{name}}" height="100px">
+				<div class="track__content">
+					<strong class="playlist__name">Пісні, що сподобались</strong>
+					<span class="playlist__amount">{{amount}} пісень</span>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+
+		<ul class="playlist__list">
+			{{#each list}}
+			<li class="playlist">
+				<img src="{{image}}" alt="{{name}}" height="100px">
+				<div class="track__content">
+					<strong class="playlist__name">Спільний альбом</strong>
+					<span class="playlist__amount">{{amount}} пісень</span>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+
+		<ul class="playlist__list">
+			{{#each list}}
+			<li class="playlist">
+				<img src="{{image}}" alt="{{name}}" height="100px">
+				<div class="track__content">
+					<strong class="playlist__name">Інь Ян</strong>
+					<span class="playlist__amount">{{amount}} пісень</span>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+
+		<ul class="playlist__list">
+			{{#each list}}
+			<li class="playlist">
+				<img src="{{image}}" alt="{{name}}" height="100px">
+				<div class="track__content">
+					<strong class="playlist__name">Мій плейліст №1</strong>
+					<span class="playlist__amount">{{amount}} пісень</span>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+
+	</div>
+	{{/with}}
+</main>
+
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+	Адже наш layout/default.hbs має вже структуру HTML
+	}}
